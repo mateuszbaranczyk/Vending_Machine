@@ -22,22 +22,9 @@ def test_compare_value(customer_cache, order_value, expected_result):
     assert result == expected_result
 
 
-def test_compare_value_2():
-    customer_cache = 10
-    order_value = 5
-    expected_result = "wydaję resztę i produkt"
-    result = compare_value(customer_cache, order_value)
-    assert result == expected_result
-
-
-def test_compare_value_3():
-    customer_cache = 5
-    order_value = 10
-    expected_result = "za mało hajsu"
-    result = compare_value(customer_cache, order_value)
-    assert result == expected_result
-
-
+@pytest.mark.parametrize(
+    "customer_cache, order_value, expected_result", [(5, 5, 0), (10, 5, 5)]
+)
 def test_change_money_if_nothing_to_change():
     customer_cash = 5
     order_value = 5
