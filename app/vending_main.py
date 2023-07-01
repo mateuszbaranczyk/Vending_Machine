@@ -22,7 +22,9 @@ def compare_value(customer_cash: int, order_value: int) -> str:
 
 
 def get_product(product_id, ordered_quantity):
-    product_quantity = DB.get(product_id, "nie znaleziono produktu")
+    product_quantity = DB.get(product_id, None)
+    if not product_quantity:
+        return "nie znaleziono produktu"
 
     if ordered_quantity > product_quantity:
         return f"zbyt duża ilość produktu, max: {product_quantity}"
