@@ -1,4 +1,5 @@
 from app.vending_main import change_money, compare_value, get_money
+import pytest
 
 
 def test_get_money():
@@ -8,10 +9,15 @@ def test_get_money():
     assert expected_result == result
 
 
-def test_compare_value():
-    customer_cache = 5
-    order_value = 5
-    expected_result = "wydaje produkt"
+@pytest.mark.parametrize(
+    "customer_cache, order_value, expected_result",
+    [
+        (5, 5, "wydaje produkt"),
+        (10, 5, "wydaję resztę i produkt"),
+        (5, 10, "za mało hajsu"),
+    ],
+)
+def test_compare_value(customer_cache, order_value, expected_result):
     result = compare_value(customer_cache, order_value)
     assert result == expected_result
 
