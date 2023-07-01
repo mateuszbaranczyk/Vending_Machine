@@ -1,3 +1,6 @@
+from app.database import DB
+
+
 def get_money(customer_cash: int) -> int:
     return customer_cash
 
@@ -18,6 +21,9 @@ def compare_value(customer_cash: int, order_value: int) -> str:
         return "wydaje produkt"
 
 
-def get_product(product_id, quantity):
-    # odejmowanie stanów magazynowych
-    pass
+def get_product(product_id, ordered_quantity):
+    product_quantity = DB.get(product_id, "nie znaleziono produktu")
+    if ordered_quantity > product_quantity:
+        return f"zbyt duża ilość produktu, max: {product_quantity}"
+    DB[product_id] = product_quantity - ordered_quantity
+    return "wydano produkt"
