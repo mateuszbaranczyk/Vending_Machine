@@ -25,7 +25,9 @@ def test_compare_value(customer_cache, order_value, expected_result):
 @pytest.mark.parametrize(
     "customer_cache, order_value, expected_result", [(5, 5, 0), (10, 5, 5)]
 )
-def test_change_money_if_nothing_to_change():
+def test_change_money_if_nothing_to_change(
+    customer_cache, order_value, expected_result
+):
     customer_cash = 5
     order_value = 5
     expected_result = 0
