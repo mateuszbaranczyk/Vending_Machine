@@ -24,6 +24,14 @@ def test_compare_value_2():
     assert result == expected_result
 
 
+def test_compare_value_3():
+    customer_cache = 5
+    order_value = 10
+    expected_result = "za mało hajsu"
+    result = compare_value(customer_cache, order_value)
+    assert result == expected_result
+
+
 def test_change_money_if_nothing_to_change():
     customer_cash = 5
     order_value = 5
