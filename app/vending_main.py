@@ -16,3 +16,8 @@ def compare_value(customer_cash: int, order_value: int) -> str:
         return "wydaję resztę i produkt"
     else:
         return "wydaje produkt"
+
+
+def get_product(product_id, quantity):
+    # odejmowanie stanów magazynowych
+    pass
