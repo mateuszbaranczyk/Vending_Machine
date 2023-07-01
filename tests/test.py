@@ -1,12 +1,4 @@
-from unittest import mock
-
 from app.vending_main import change_money, compare_value, get_money
-
-
-def test_get_money():
-    insert_cash = mock.MagicMock(return_value=3)
-    compare_value = mock.MagicMock(return_value=0)
-    change_money = mock.MagicMock(return_value=0)
 
 
 def test_get_money():
