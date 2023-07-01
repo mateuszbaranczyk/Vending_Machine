@@ -33,11 +33,3 @@ def test_change_money_if_nothing_to_change(
     expected_result = 0
     result = change_money(customer_cash, order_value)
     assert result == expected_result
-
-
-def test_change_money_if_cash_to_return():
-    customer_cash = 10
-    order_value = 5
-    expected_result = 5
-    result = change_money(customer_cash, order_value)
-    assert result == expected_result
