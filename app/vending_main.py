@@ -2,7 +2,10 @@ def get_money(customer_cash: int) -> int:
     return customer_cash
 
 
-def change_money(value_return, order_value: int):
+def change_money(customer_cash:int, order_value: int) -> int:
+    value_return = customer_cash - order_value
+    if value_return <=0:
+        value_return = 0
     return value_return
 
 
