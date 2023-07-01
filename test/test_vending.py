@@ -40,9 +40,6 @@ def test_change_money_if_nothing_to_change(customer_cash, order_value, expected_
     ],
 )
 def test_get_product(product_id, quantity, expected_result):
-    # product_id = 11
-    # quantity = 1
-    # expected_result = "wydano produkt"
     with mock.patch.dict(DB, {11:1}):
         result = get_product(product_id, quantity)
         assert result == expected_result
