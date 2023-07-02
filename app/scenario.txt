@@ -1,0 +1,11 @@
+from app import vending_main
+
+customer_order = input("wybierz produkt ")
+ordered_quantity = input("podaj ilość ")
+customer_cash = input("wrzuć monete ")
+
+
+1. check if product_id avaliable
+2. check if customer_cash is ok 
+3. deliver product 
+4. change cash
