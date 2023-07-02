@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
-DB = {11:50}
+DB = {11: 50}
+
 
 @dataclass
 class Product:

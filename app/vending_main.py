@@ -23,7 +23,7 @@ def compare_value(customer_cash: int, order_value: int) -> str:
 
 def get_product(product_id: int, ordered_quantity: int) -> str:
     product = DB.get(product_id, None)
-    
+
     if not product:
         return "nie znaleziono produktu"
 
@@ -32,6 +32,7 @@ def get_product(product_id: int, ordered_quantity: int) -> str:
 
     product.give_quantity(ordered_quantity)
     return str(product)
+
 
 def calculate_order_value(product: object, order_quantity: int) -> int:
     order_value = product.price * order_quantity

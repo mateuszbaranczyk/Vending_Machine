@@ -1,7 +1,14 @@
-from app.vending_main import calculate_order_value, change_money, compare_value, get_money, get_product
+from app.vending_main import (
+    calculate_order_value,
+    change_money,
+    compare_value,
+    get_money,
+    get_product,
+)
 from unittest import mock
 import pytest
 from app.database import DB
+
 
 def test_get_money():
     customer_cash = 5
@@ -41,7 +48,7 @@ def test_change_money_if_nothing_to_change(customer_cash, order_value, expected_
 )
 def test_get_product(product_id, quantity, expected_result, expected_quantity, product):
     product.quantity = 1
-    with mock.patch.dict(DB, {11:product}):
+    with mock.patch.dict(DB, {11: product}):
         result = get_product(product_id, quantity)
         actual_quantity = DB[11].quantity
         assert result == expected_result
