@@ -1,7 +1,5 @@
 from dataclasses import dataclass
 
-DB = {11: 50}
-
 
 @dataclass
 class Product:
@@ -16,3 +14,7 @@ class Product:
         new_quantity = self.quantity - ordered_quantity
         setattr(self, "quantity", new_quantity)
         return new_quantity
+
+
+product = Product(product_id=11, unit_price=10, quantity=50)
+DB = {11: product}
