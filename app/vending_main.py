@@ -30,8 +30,8 @@ def get_product(product_id: int, ordered_quantity: int) -> str:
     if ordered_quantity > product.quantity:
         return f"zbyt duża ilość produktu, max: {product.quantity}"
 
-    DB[product_id] = product.quantity - ordered_quantity
-    return "wydano produkt"
+    product.give_quantity(ordered_quantity)
+    return str(product)
 
 def calculate_order_value(product: object, order_quantity: int) -> int:
     order_value = product.price * order_quantity
