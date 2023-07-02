@@ -35,5 +35,5 @@ def check_avaliabity(product_id: int, ordered_quantity: int) -> str:
 
 
 def calculate_order_value(product: object, order_quantity: int) -> int:
-    order_value = product.price * order_quantity
+    order_value = product.unit_price * order_quantity
     return order_value

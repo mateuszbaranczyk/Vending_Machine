@@ -58,7 +58,7 @@ def test_get_product(product_id, quantity, expected_result, expected_quantity, p
 
 def test_calculate_order_value():
     product = mock.MagicMock()
-    product.price = 10
+    product.unit_price = 10
     order_quantity = 2
     expected_result = 20
 
