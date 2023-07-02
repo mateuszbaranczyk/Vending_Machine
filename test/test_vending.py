@@ -32,17 +32,19 @@ def test_change_money_if_nothing_to_change(customer_cash, order_value, expected_
 
 
 @pytest.mark.parametrize(
-    "product_id, quantity, expected_result",
+    "product_id, quantity, expected_result, expected_quantity",
     [
-        (11, 1, "wydano produkt"),
-        (11, 2, "zbyt duża ilość produktu, max: 1"),
-        (12, 1, "nie znaleziono produktu"),
+        (11, 1, "wydano produkt", 0),
+        (11, 2, "zbyt duża ilość produktu, max: 1", 1),
+        (12, 1, "nie znaleziono produktu", 1),
     ],
 )
-def test_get_product(product_id, quantity, expected_result):
+def test_get_product(product_id, quantity, expected_result, expected_quantity):
     with mock.patch.dict(DB, {11:1}):
         result = get_product(product_id, quantity)
+        actual_quantity = DB[11]
         assert result == expected_result
+        assert actual_quantity == expected_quantity
 
 
 def test_calculate_order_value():
