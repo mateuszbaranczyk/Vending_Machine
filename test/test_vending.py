@@ -3,7 +3,7 @@ from app.vending_main import (
     change_money,
     compare_value,
     get_money,
-    get_product,
+    check_avaliabity,
 )
 from unittest import mock
 import pytest
@@ -49,9 +49,9 @@ def test_change_money_if_nothing_to_change(customer_cash, order_value, expected_
 def test_get_product(product_id, quantity, expected_result, expected_quantity, product):
     product.quantity = 1
     with mock.patch.dict(DB, {11: product}):
-        result = get_product(product_id, quantity)
+        result = check_avaliabity(product_id, quantity)
         actual_quantity = DB[11].quantity
-        
+
         assert result == expected_result
         assert actual_quantity == expected_quantity
 

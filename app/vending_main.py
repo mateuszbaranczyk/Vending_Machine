@@ -21,7 +21,7 @@ def compare_value(customer_cash: int, order_value: int) -> str:
         return "wydaje produkt"
 
 
-def get_product(product_id: int, ordered_quantity: int) -> str:
+def check_avaliabity(product_id: int, ordered_quantity: int) -> str:
     product = DB.get(product_id, None)
 
     if not product:
