@@ -34,7 +34,7 @@ def test_change_money_if_nothing_to_change(customer_cash, order_value, expected_
 @pytest.mark.parametrize(
     "product_id, quantity, expected_result, expected_quantity",
     [
-        (11, 1, "wydano produkt", 0),
+        (11, 1, "product_id_11", 0),
         (11, 2, "zbyt duża ilość produktu, max: 1", 1),
         (12, 1, "nie znaleziono produktu", 1),
     ],
