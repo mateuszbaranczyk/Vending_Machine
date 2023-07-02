@@ -16,3 +16,4 @@ def test_give_quantity(product):
     result = product.give_quantity(2)
     expected_result = 48
     assert result == expected_result
+    assert product.quantity == expected_result
