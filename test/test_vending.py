@@ -1,4 +1,4 @@
-from app.vending_main import change_money, compare_value, get_money, get_product
+from app.vending_main import calculate_order_value, change_money, compare_value, get_money, get_product
 from unittest import mock
 import pytest
 from app.database import DB
@@ -43,3 +43,14 @@ def test_get_product(product_id, quantity, expected_result):
     with mock.patch.dict(DB, {11:1}):
         result = get_product(product_id, quantity)
         assert result == expected_result
+
+
+def test_calculate_order_value():
+    product = mock.MagicMock()
+    product.price = 10
+    order_quantity = 2
+    expected_result = 20
+
+    result = calculate_order_value(product, order_quantity)
+
+    assert expected_result == result
