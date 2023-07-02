@@ -31,3 +31,7 @@ def get_product(product_id: int, ordered_quantity: int) -> str:
 
     DB[product_id] = product_quantity - ordered_quantity
     return "wydano produkt"
+
+def calculate_order_value(product, order_quantity):
+    order_value = product.price * order_quantity
+    return order_value
