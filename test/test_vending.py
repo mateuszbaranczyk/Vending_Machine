@@ -51,6 +51,7 @@ def test_get_product(product_id, quantity, expected_result, expected_quantity, p
     with mock.patch.dict(DB, {11: product}):
         result = get_product(product_id, quantity)
         actual_quantity = DB[11].quantity
+        
         assert result == expected_result
         assert actual_quantity == expected_quantity
 

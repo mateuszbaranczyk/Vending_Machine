@@ -11,9 +11,8 @@ class Product:
         return f"product_id_{self.product_id}"
 
     def give_quantity(self, ordered_quantity):
-        new_quantity = self.quantity - ordered_quantity
-        setattr(self, "quantity", new_quantity)
-        return new_quantity
+        self.quantity -= ordered_quantity
+        return self.quantity
 
 
 product = Product(product_id=11, unit_price=10, quantity=50)
