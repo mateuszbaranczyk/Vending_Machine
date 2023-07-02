@@ -1,14 +1,10 @@
 from app import vending_main
 from app.database import DB
 
-customer_order = int(input("wybierz produkt "))
-ordered_quantity = int(input("podaj ilość "))
-customer_cash = int(input("wrzuć monete "))
 
-
-def avaliability(customer_order: int) -> object:
+def avaliability(customer_order: int, ordered_quantity: int) -> object:
     while True:
-        avaliable_msg = vending_main.check_avaliabity(customer_order)
+        avaliable_msg = vending_main.check_avaliabity(customer_order, ordered_quantity)
 
         if f"{customer_order}" in avaliable_msg:
             product = DB.get(customer_order)
@@ -37,9 +33,11 @@ def cash(ordered_quantity: int, customer_cash: int, product: object):
 
 
 def run():
-    product = avaliability(customer_order)
-    cash = cash(ordered_quantity, customer_cash, product)
-    order_value = cash(ordered_quantity, customer_cash)
+    customer_order = int(input("wybierz produkt "))
+    ordered_quantity = int(input("podaj ilość "))
+    customer_cash = int(input("wrzuć monete "))
+    product = avaliability(customer_order, ordered_quantity)
+    order_value = cash(ordered_quantity, customer_cash, product)
     change = vending_main.change_money(customer_cash, order_value)
     print(f"reszta: {change} pieniędzy")
 
