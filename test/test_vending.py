@@ -39,8 +39,8 @@ def test_change_money_if_nothing_to_change(customer_cash, order_value, expected_
         (12, 1, "nie znaleziono produktu", 1),
     ],
 )
-def test_get_product(product_id, quantity, expected_result, expected_quantity):
-    with mock.patch.dict(DB, {11:1}):
+def test_get_product(product_id, quantity, expected_result, expected_quantity, product):
+    with mock.patch.dict(DB, {11:product}):
         result = get_product(product_id, quantity)
         actual_quantity = DB[11]
         assert result == expected_result
