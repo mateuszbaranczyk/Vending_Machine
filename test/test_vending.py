@@ -54,8 +54,8 @@ def test_get_product(product_id, quantity, expected_result, expected_quantity, p
         result = check_avaliabity(product_id, quantity)
         actual_quantity = DB[11].quantity
 
-        assert result == expected_result
-        assert actual_quantity == expected_quantity
+    assert result == expected_result
+    assert actual_quantity == expected_quantity
 
 
 def test_calculate_order_value():
