@@ -1,5 +1,5 @@
-from app.database import DB
-from app.vending_operations import (
+from database import DB
+from vending_operations import (
     calculate_order_value,
     change_money,
     check_avaliabity,
@@ -17,7 +17,9 @@ class VendingMashine:
         self.customer_order = int(input("wybierz produkt "))
         self.ordered_quantity = int(input("podaj ilość "))
         while True:
-            avaliable_msg = check_avaliabity(self.customer_order, self.ordered_quantity)
+            avaliable_msg = check_avaliabity(
+                self.customer_order, self.ordered_quantity
+            )
 
             if f"{self.customer_order}" in avaliable_msg:
                 self.product = DB.get(self.customer_order)

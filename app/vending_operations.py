@@ -1,4 +1,4 @@
-from app.database import DB
+from database import DB
 
 
 def get_money(customer_cash: int) -> int:
