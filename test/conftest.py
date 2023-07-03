@@ -1,5 +1,6 @@
-from app.database import Product
 from pytest import fixture
+
+from app.database import Product
 
 
 @fixture

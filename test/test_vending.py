@@ -1,13 +1,15 @@
+from unittest import mock
+
+import pytest
+
+from app.database import DB
 from app.vending_operations import (
     calculate_order_value,
     change_money,
+    check_avaliabity,
     compare_value,
     get_money,
-    check_avaliabity,
 )
-from unittest import mock
-import pytest
-from app.database import DB
 
 
 def test_get_money():

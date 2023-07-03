@@ -1,10 +1,10 @@
+from app.database import DB
 from app.vending_operations import (
     calculate_order_value,
     change_money,
-    compare_value,
     check_avaliabity,
+    compare_value,
 )
-from app.database import DB
 
 
 class VendingMashine:
