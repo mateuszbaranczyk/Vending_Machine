@@ -30,7 +30,6 @@ def check_avaliabity(product_id: int, ordered_quantity: int) -> str:
     if ordered_quantity > product.quantity:
         return f"zbyt duża ilość produktu, max: {product.quantity}"
 
-    product.give_quantity(ordered_quantity)
     return str(product)
 
 

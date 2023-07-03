@@ -12,14 +12,13 @@ class VendingMashine:
         self.db = DB
 
     def __call__(self) -> None:
-        self.customer_order = int(input("wybierz produkt "))
-        self.ordered_quantity = int(input("podaj ilość "))
-        self.customer_cash = int(input("wrzuć monete "))
         self.get_order()
         self.calculate_money()
         self.deliver_order_and_change()
 
     def get_order(self) -> None:
+        self.customer_order = int(input("wybierz produkt "))
+        self.ordered_quantity = int(input("podaj ilość "))
         while True:
             avaliable_msg = check_avaliabity(self.customer_order, self.ordered_quantity)
 
@@ -32,6 +31,7 @@ class VendingMashine:
                 continue
 
     def calculate_money(self) -> None:
+        self.customer_cash = int(input("wrzuć monete "))
         while True:
             self.order_value = calculate_order_value(
                 self.product, self.ordered_quantity
@@ -39,7 +39,6 @@ class VendingMashine:
             cash_msg = compare_value(self.customer_cash, self.order_value)
 
             if cash_msg == "wydaje produkt" or "wydaję resztę i produkt":
-                self.product.give_quantity(self.ordered_quantity)
                 print(cash_msg)
                 break
             else:
@@ -48,6 +47,7 @@ class VendingMashine:
                 continue
 
     def deliver_order_and_change(self) -> None:
+        self.product.give_quantity(self.ordered_quantity)
         change = change_money(self.customer_cash, self.order_value)
         print(f"reszta: {change} pieniędzy")
 
