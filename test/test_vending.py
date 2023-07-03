@@ -1,4 +1,4 @@
-from app.vending_main import (
+from app.vending_operations import (
     calculate_order_value,
     change_money,
     compare_value,
