@@ -1,8 +1,8 @@
-from unittest.mock import patch, Mock
+import builtins
+from unittest.mock import Mock, patch
+
 from app.database import DB
 from app.vending_main import VendingMashine
-import builtins
-
 
 mocked_input = Mock()
 mocked_input.side_effect = [11, 1, 10]
