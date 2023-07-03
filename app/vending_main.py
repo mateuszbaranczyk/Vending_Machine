@@ -8,9 +8,6 @@ from app.vending_operations import (
 
 
 class VendingMashine:
-    def __init__(self) -> None:
-        self.db = DB
-
     def __call__(self) -> None:
         self.get_order()
         self.calculate_money()
