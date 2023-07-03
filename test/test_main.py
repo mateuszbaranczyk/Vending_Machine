@@ -7,6 +7,7 @@ import builtins
 mocked_input = Mock()
 mocked_input.side_effect = [11, 1, 10]
 
+
 @patch.object(builtins, "input", mocked_input)
 def test_vending_main(product):
     product.quantity = 1
