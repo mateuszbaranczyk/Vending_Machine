@@ -1,5 +1,5 @@
-from database import DB
-from vending_operations import (
+from app.database import DB
+from app.vending_operations import (
     calculate_order_value,
     change_money,
     check_avaliabity,
